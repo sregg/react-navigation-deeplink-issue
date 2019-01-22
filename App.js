@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Text, View, FlatList, Button} from 'react-native';
-import {createStackNavigator, createMaterialTopTabNavigator, createAppContainer} from 'react-navigation';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 
 const style = { flex: 1, alignItems: "center", justifyContent: "center" }
 
@@ -62,12 +64,17 @@ class DetailsTab2 extends Component {
 const DetailsTabs = createMaterialTopTabNavigator({
   Tab1: {
     screen: DetailsTab1,
-    path: 'tab1'
+    path: 'tab1',
+    inheritParams: ['id']
   },
   Tab2: {
     screen: DetailsTab2,
-    path: 'tab2'
+    path: 'tab2',
+    inheritParams: ['id']
   }
+}, 
+{
+  explicitParams: true
 });
 
 const AppNavigator = createStackNavigator({
@@ -82,12 +89,15 @@ const AppNavigator = createStackNavigator({
     },
     path: 'details/:id'
   }
+}, 
+{
+  explicitParams: true
 });
 
 const App = createAppContainer(AppNavigator);
 
 const prefix = 'mychat://';
 
-const MainApp = () => <App uriPrefix={prefix} />;
+const MainApp = () => <App uriPrefix={prefix}/>;
 
 export default MainApp;

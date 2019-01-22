@@ -7,10 +7,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-navigation/core": "https://github.com/react-navigation/react-navigation-core#params-sanity",
     "react": "16.6.3",
     "react-native": "0.57.8",
     "react-native-gesture-handler": "^1.0.12",
-    "react-navigation": "^3.0.9"
+    "react-navigation": "^3.0.9",
+    "react-navigation-stack": "^1.0.0-alpha.25",
+    "react-navigation-tabs": "^0.5.1"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
